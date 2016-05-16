@@ -1,0 +1,14 @@
+<nav>
+  <ul>
+    <li><%= link_to 'Home', root_path, method: :get %></li>
+    <% if signed_in? %>
+    <li>
+      Signed In As: <%= link_to (@user.first_name), edit_user_registration_path, method: :get %>
+    </li>
+    <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+    <% else %>
+    <li><%= link_to 'Sign Up', new_user_registration_path, method: :get %></li>
+    <li><%= link_to 'Sign In', new_user_session_path, method: :get %></li>
+    <% end %>
+  </ul>
+</nav>
